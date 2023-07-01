@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+}
+
+.card {
+    margin: 50px auto;
+    display: flex;
+    width: 550px;
+    height: 650px;
+    background-color: #1F2937;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.head_bottom {
+    color: #4ADF86;
+}
+
+.head_top, .head_bottom {
+    margin: 0;
+}
+
+.head_container {
+    color: #fff;
+    font-size: 24px;
+}
+
+.head_decript {
+    font-size: 18px;
+    color: #D5D4D8;
+    margin: 15px 0;
+}
+
+hr {
+    color: #2F3E53;
+    width: 50%;
+    margin: 10px 0 20px 0;
+}
+
+.generate {
+    margin: 25px 0;
+    background-color: #10B981;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+}
+
+.generate:hover {
+    background-color: #0e8b62;
+}
+
+.passwordOne, .passwordTwo {
+    width: 250px;
+    height: 50px;
+    background-color: #273549;
+    margin: 5px;
+    border-radius: 6px;
+    color: #55F991;
+    text-align: center;
+    font-size: 16px;
+}
+
+.fieldsPlaceholder {
+    display: flex;
+}
+
+.characters {
+    margin: 5px 2px;
+    background-color: #10B981;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+}
+
+.characters:hover {
+    background-color: #0e8b62;
+}
+
+.charachterLength {
+    display: flex;
+    margin: 25px auto;
+}
+
+.number_decript {
+    font-size: 25px;
+    margin: auto 15px;
+    background-color: #273549;
+    padding: 10px;
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.selection {
+    margin: 5px 0;
+    background-color: #10B981;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    width: 225px;
+}
+
+.selection_Container {
+    display: flex;
+    flex-direction: column;
+}
