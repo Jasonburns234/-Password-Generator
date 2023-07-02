@@ -1,6 +1,6 @@
 <!DOCTYPE html lang="en">
 <html>
-<head>
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,27 +13,27 @@
 </head>
 <body>
     <div class="card">
-        <div class="head_container">
-            <h1 class="head_top">Generate a</h1>
-            <h1 class="head_bottom">random password</h1>
-            <p class="head_decript">Never use an unsecure password again</p>
+        <div class="head-section-container">
+            <h1 class="heading-top">Generate a</h1>
+            <h1 class="heading-bottom">random password</h1>
+            <p class="heading-decript">Never use an unsecure password again</p>
             <button class="generate" onclick="generatePassword()">Generate Passwords</button>
         </div>
         <hr>
-        <div class="fieldsPlaceholder">
-            <div class="passwordOne">
-                <p id="passDisplayOne"></p>
+        <div class="fields-place-holder">
+            <div class="password-one-display">
+                <p id="password-display-field-one"></p>
             </div>
-            <div class="passwordTwo">
-                <p id="passDisplayTwo"></p>
+            <div class="password-two-display">
+                <p id="password-display-field-two"></p>
             </div>
         </div>
-        <div class="charachterLength">
-            <p class="number_decript" id="quantity">15</p>
-            <button class="characters" id="quantityPlus" onclick="addMore()">Add More</button>
-            <button class="characters" id="quantityMinus" onclick="addLess()">Add Less</button>
+        <div class="character-length">
+            <p class="number-description" id="quantity">15</p>
+            <button class="characters" id="quantity-plus" onclick="addMore()">Add More</button>
+            <button class="characters" id="quantity-minus" onclick="addLess()">Add Less</button>
         </div>
-        <div class="selection_Container">
+        <div class="selection-container">
             <button class="selection" id="numbers" onclick="numberOnly()">Remove Numbers</button>
             <button class="selection" id="letters" onclick="lettersOnly()">Remove Letters</button>
             <button class="selection" id="special" onclick="specialOnly()">Remove Characters</button>
