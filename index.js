@@ -1,30 +1,30 @@
 let characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"];
 
-let passOne = document.getElementById("passDisplayOne");
-let passTwo = document.getElementById("passDisplayTwo");
+let passwordOneField = document.getElementById("password-display-field-one");
+let passwordTwoField = document.getElementById("password-display-field-two");
 
-let totalNumbers = 15;
-let count = 0;
-let countTwo = 0;
-let countThree = 0;
+let passwordLength = 15;
+let includeNumbersInPassword = false;
+let includeLettersInPassword = false;
+let includeSpecialLettersInPassword = false;
 
 function generatePassword() {
-    passOne.textContent = "";
-    passTwo.textContent = "";
+    passwordOneField.textContent = "";
+    passwordTwoField.textContent = "";
     if (characters.length === 0) {
-        passOne.textContent = "Nothing to Input";
-        passTwo.textContent = "Nothing to Input";
+        passwordOneField.textContent = "No password generated";
+        passwordTwoField.textContent = "No password generated";
     } else {
-        for (var i = 0; i < totalNumbers; i++) {
-            passOne.textContent += characters[Math.floor(Math.random() * characters.length)];
-            passTwo.textContent += characters[Math.floor(Math.random() * characters.length)];
+        for (var i = 0; i < passwordLength; i++) {
+            passwordOneField.textContent += characters[Math.floor(Math.random() * characters.length)];
+            passwordTwoField.textContent += characters[Math.floor(Math.random() * characters.length)];
         }
     }
 }
 
 function addMore() {
-    if (totalNumbers < 18) {
-        document.getElementById("quantity").textContent = ++totalNumbers;
+    if (passwordLength < 18) {
+        document.getElementById("quantity").textContent = ++passwordLength;
         document.getElementById("quantity").style.color = "#fff";
     } else {
         document.getElementById("quantity").style.color = "red";
@@ -32,8 +32,8 @@ function addMore() {
 }
 
 function addLess() {
-    if (totalNumbers > 5) {
-        document.getElementById("quantity").textContent = --totalNumbers;
+    if (passwordLength > 5) {
+        document.getElementById("quantity").textContent = --passwordLength;
         document.getElementById("quantity").style.color = "#fff";
     } else {
         document.getElementById("quantity").style.color = "red";
@@ -41,56 +41,59 @@ function addLess() {
 }
 
 function numberOnly() {
-    passOne.textContent = "";
-    passTwo.textContent = "";
-    let checkerNumbers = document.getElementById("numbers");
+    passwordOneField.textContent = "";
+    passwordTwoField.textContent = "";
+    let OnOffNumbersSelector = document.getElementById("numbers");
 
-    if (count === 0) {
-        checkerNumbers.style.backgroundColor = "red";
-        count++;
-        checkerNumbers.textContent = "Add Numbers";
-        characters = characters.filter(character => isNaN(Number(character)));
-    } else if (count === 1) {
-        checkerNumbers.style.backgroundColor = "#10B981";
-        checkerNumbers.textContent = "Remove Numbers";
-        count--;
+    if (includeNumbersInPassword) {
+        OnOffNumbersSelector.style.backgroundColor = "red";
+        OnOffNumbersSelector.textContent = "Remove Numbers";
+        includeNumbersInPassword = false;
         characters.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
-    }
-}
+    } else {
+        OnOffNumbersSelector.style.backgroundColor = "#10B981";
+        includeNumbersInPassword = true;
+        OnOffNumbersSelector.textContent = "Add Numbers";
+        characters = characters.filter(character => isNaN(Number(character)));
+    };
+};
 
 function lettersOnly() {
-    passOne.textContent = "";
-    passTwo.textContent = "";
-    let checkerLetters = document.getElementById("letters");
+    passwordOneField.textContent = "";
+    passwordTwoField.textContent = "";
+    let OnOffLettersSelector = document.getElementById("letters");
 
-    if (countTwo === 0) {
-        checkerLetters.style.backgroundColor = "red";
-        countTwo++;
-        checkerLetters.textContent = "Add Letters";
+    if (includeLettersInPassword) {
+        OnOffLettersSelector.style.backgroundColor = "red";
+        OnOffLettersSelector.textContent = "Remove Letters";
+        includeLettersInPassword = false;
+        characters = characters.concat(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y"]);
+    } else {
+        OnOffLettersSelector.style.backgroundColor = "#10B981";
+        includeLettersInPassword = true;
+        OnOffLettersSelector.textContent = "Add Letters";
         characters = characters.filter(character => !(/[a-zA-Z]/.test(character)));
-    } else if (countTwo === 1) {
-        checkerLetters.style.backgroundColor = "#10B981";
-        checkerLetters.textContent = "Remove Letters";
-        countTwo--;
-        characters.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-    }
-}
+    };
+};
+
 
 function specialOnly() {
-    passOne.textContent = "";
-    passTwo.textContent = "";
-    let checkerSpecial = document.getElementById("special");
+    passwordOneField.textContent = "";
+    passwordTwoField.textContent = "";
+    let OnOffSpecialCharachtersSelector = document.getElementById("special");
     const special = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"];
 
-    if (countThree === 0) {
-        checkerSpecial.style.backgroundColor = "red";
-        countThree++;
-        checkerSpecial.textContent = "Add special Characters";
-        characters = characters.filter(character => !special.includes(character));
-    } else if (countThree === 1) {
-        checkerSpecial.style.backgroundColor = "#10B981";
-        checkerSpecial.textContent = "Remove Characters";
-        countThree--;
+    if (includeSpecialLettersInPassword) {
+
+        OnOffSpecialCharachtersSelector.style.backgroundColor = "red";
+        OnOffSpecialCharachtersSelector.textContent = "Remove Characters";
+        includeSpecialLettersInPassword = false;
         characters.push(...special);
+    } else{
+        OnOffSpecialCharachtersSelector.style.backgroundColor = "#10B981";
+        includeSpecialLettersInPassword = true;
+        OnOffSpecialCharachtersSelector.textContent = "Add special Characters";
+        characters = characters.filter(character => !special.includes(character));
     }
 }
+
